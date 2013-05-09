@@ -1,0 +1,93 @@
+;;;;;;;;
+;; grab name of class from current line
+;; create comment block and insert class name
+;;
+(fset 'absio-header-class-comment
+      "\C-a\M-f\C-@\M-f\C-w\C-y\C-p\C-m\/**\C-m* @class \C-y\C-m* @brief\C-m*/\C-u1\C-p\C-e")
+
+
+;;;;;;;;
+;; comment for a method - header
+;; grab name of method from current line
+;; create comment block and insert method  name
+;;
+(fset 'absio-header-method-comment
+      "\C-a\M-f\C-@\M-f\C-w\C-y\C-p\C-m\/**\C-m* \C-y\C-m* @brief\C-m*/\C-u1\C-p\C-e")
+
+;;;;;;;;
+;; comment for a method - header
+;; grab name of method from current line
+;; create comment block and insert method  name
+;;
+(fset 'absio-header-method-comment-param
+      "\C-a\M-f\C-@\M-f\C-w\C-y\C-p\C-m\/**\C-m*\C-y\C-m* @brief\C-m* @param\C-m*/\C-u2\C-p\C-e")
+
+;;;;;;;;
+;; comment for a method - header
+;; grab name of method from current line
+;; create comment block and insert method  name
+;;
+(fset 'absio-header-method-comment-ret
+      "\C-a\M-f\C-@\M-f\C-w\C-y\C-p\C-m\/**\C-m*\C-y\C-m* @brief\C-m* @return\C-m*/\C-u2\C-p\C-e")
+
+;;;;;;;;
+;; comment for a method - header
+;; grab name of method from current line
+;; create comment block and insert method  name
+;;
+(fset 'absio-header-method-comment-param-ret
+      "\C-a\M-f\C-@\M-f\C-w\C-y\C-p\C-m\/**\C-m*\C-y\C-m* @brief\C-m* @param\C-m* @return\C-m*/\C-u2\C-p\C-e")
+
+;;;;;;;;
+;; comment for a method - header
+;; grab name of method from current line
+;; create comment block and insert method  name
+;;
+(fset 'absio-header-method-comment-add-param
+      "\C-e\C-m* @param\C-e")
+
+
+
+
+
+;;;;;;;;
+;; comment for a method - source
+;;
+(fset 'absio-source-method-comment
+      "/**\C-m*\C-m* \C-m*\C-m*/\C-m\C-u4\C-p\C-e ")
+
+;;;;;;;;
+;; put copyright info at point
+;;
+(fset 'absio-copyright
+      "/\C-u76*\C-m ** Copyright (C) 2009-2011 ip3 Corporation. All rights reserved.          **
+                    ** Copyright (C) 2011  Absio. All rights reserved.                        **
+      \C-u76*/\C-m\C-m")
+
+;;;;;;;;
+;; put SVN style tag and header info 
+;; this will subsequently call absio-copyright
+;;
+(fset 'absio-comment-top
+      "/** $Id$*/\C-m/**\C-m* @file \C-m* @author Juan Morris (juan.morris@iphase3.com)\C-m* @author iPhase3\C-m* @date yyyy-mm-dd\C-m* @brief\C-m*\C-m* @details\C-m* @bug\C-m\*/\C-m\M-xabsio-copyright\C-m\C-u11\C-p\C-e")
+
+;;;;;;;;
+;; My TODO
+;;
+(fset 'absio-todo
+      "\C-a\C-m\C-u1\C-p// TODO(juan.morris@absio.com)\C-m//    - ")
+
+
+
+
+
+;;;c/c++ style
+
+;;;;;;;;
+;; comment for a method - source
+;;
+(fset 'absio-function-comment
+      "/\C-u64*\C-m*\C-m* \C-m*\C-m*/\C-m\C-u4\C-p\C-e")
+
+(fset 'absio-header-top
+      "/**\C-m*\C-m* @file \C-m* @author Juan Morris <juan.morris@absio.com>\C-m* @author iPhase3\C-m* @date yyyy-mm-dd\C-m* @brief\C-m*\C-m*/\C-m\M-xabsio-copyright\C-m\C-u11\C-p\C-e")

@@ -1,0 +1,54 @@
+The file sql.el contains simple emacs commands that make it a bit easier to
+code pl/sql.  Here are some of the more useful functions and quick key (if
+it's defined):
+
+sql-procedure		\C-cp
+  Create a pl/sql procedure. The procedure includes an exception handler and
+  delclares the variable proc_name. You will have to replace all occurences
+  of the string "$$$" with the name of the procedure.
+
+sql-function		\C-cf
+  Same as sql-procedure above but for functions. You will also have to
+  replace "%%%" with the return value type.
+
+sql-comment-block	\C-cc
+  Create a pl/sql comment block.
+
+sql-htp-print		\C-ch
+  Print the string "htp.print('');" and put the cursor between the single
+  quotes.
+
+sql-put-line		\C-co
+  Print the string "DBMS_OUTPUT.PUT_LINE('');" and put the cursor between
+  the single quotes.
+
+sql-debug		\C-c\C-d
+  Print the string "logit.DEBUG(1,'');" and put the cursor between the
+  single quotes.
+
+sql-varchar2		\C-cv
+  Print the string "VARCHAR2".
+
+sql-boolean		\C-cb
+  Print the string "BOOLEAN".
+
+sql-number		\C-cn
+  Print the string "NUMBER".
+
+sql-integer		\C-ci
+  Print the string "INTEGER".
+
+sql-date		\C-cd
+  Print the string "DATE".
+
+sql-clean-log-params
+  After you've copied the parameters for a PL/SQL routine from the OWS error
+  log, run this code on the buffer and it will strip out all of the garbage
+  leaving you with the parameter list for your routine.
+
+To use this, either copy it into your .emacs file or save it in your
+home directory use the emacs command "load" to load the file when
+emacs starts up
+
+	(load "sql.el")
+
