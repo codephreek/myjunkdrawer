@@ -1,0 +1,17 @@
+M-x auto-fill-mode
+C-u 60 C-x f
+to automatically wrap lines on column 60.
+
+(setq-default fill-column 66)
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+
+Meta-x auto-fill-mode
+
+Meta-q
+
+Ctrl-u Meta-q
+
+Ctrl-u 70<char>
+
+grep -r --include="*.java" -i -e  SHA-2 *
+
