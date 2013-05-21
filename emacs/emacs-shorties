@@ -1,17 +1,26 @@
+# to automatically wrap lines on column 60.
 M-x auto-fill-mode
 C-u 60 C-x f
-to automatically wrap lines on column 60.
 
+# repeat above setting on region (no adjust)
+Meta-q
+
+# repeat above setting on region (with adjust)
+Ctrl-u Meta-q
+
+# 
 (setq-default fill-column 66)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
+#
 Meta-x auto-fill-mode
 
-Meta-q
 
-Ctrl-u Meta-q
 
+# to repeat a character
 Ctrl-u 70<char>
 
+
+# some grep stuff
 grep -r --include="*.java" -i -e  SHA-2 *
 
