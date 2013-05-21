@@ -25,6 +25,7 @@ KEYS_TIME_IN = {1: "*Open*",
                 10017: "*No Task Doc*",
                 10018: "*Active Q*"}
 
+KEYURL = "http://iphase3scm:8080/browse/"
 
 ################################################################################
 def printUsageAndExit():
@@ -63,6 +64,19 @@ def getKeyDescription(key):
         return('unkown key %d'%(key))
     else:
         return(KEYS_TIME_IN[key])
+
+################################################################################
+def iequal(a, b):
+    try:
+        return a.upper() == b.upper()
+    except AttributeError:
+        return a == b
+
+################################################################################
+def formatForLink(key):
+    kurl = KEYURL + key
+    return "[" + key + "|" + kurl + "]"
+
 
 ################################################################################
 def parseTime(line):
@@ -111,8 +125,6 @@ data = json.load(json_data)
 #pprint.pprint(data)
 json_data.close()
 
-print "|| *Type* || *Key* || *Summary* || *Resolution* || *Linked Issues* || *Fix Versions* || *Release Notes* || *Time In Status* || *Priority* ||"
-
 big = [];
 for x in data["issues"]:
     result = [];
@@ -121,28 +133,27 @@ for x in data["issues"]:
     result.append(x["fields"]["issuetype"]["name"])
     
     # Key
-    result.append(x["key"])
+    result.append(formatForLink(x["key"]))
     
     # Summary
     #result.append(summ.encode('iso-8859-1'))
     #result.append(summ.encode('cp1252'))
     #result.append(summ.encode('utf-8',error='replace'))
     result.append(x["fields"]["summary"].encode('utf-8',errors='replace'))
-    
 
     # Resolution
     try:
         result.append(x["fields"]["resolution"]["name"])
     except TypeError:
-        result.append("None")
+        result.append(" ")
 
     # Linked Issues1
     links = [];
     for ils in x["fields"]["issuelinks"]:
         if "inwardIssue" in ils:
-            links.append(ils["inwardIssue"]["key"]) 
+            links.append(formatForLink(ils["inwardIssue"]["key"])) 
         else:
-            links.append(ils["outwardIssue"]["key"]) 
+            links.append(formatForLink(ils["outwardIssue"]["key"])) 
     result.append(" \\\\ ".join(map(str, links)))
     
     # Fixed Versions  
@@ -152,20 +163,50 @@ for x in data["issues"]:
     result.append(" \\\\ ".join(map(str, fixVersions)))
     
     # Release Notes
-    result.append(x["fields"]["customfield_10680"])
+    rnotes = str(x["fields"]["customfield_10680"])
+    
+    if iequal(rnotes, "none"):
+        rnotes = " "
+    result.append(rnotes)
     
     # Time In Status
     try:
         ztime = parseTime(x["fields"]["customfield_10586"])
         result.append(" \\\\ ".join(map(str, ztime)))
     except AttributeError:
-        result.append("None")
+        result.append(" ")
         
-    # Priority
-    result.append(x["fields"]["priority"]["name"])
+    # Status
+    result.append(x["fields"]["status"]["name"])
+
+    # Aggregate Time Spent
+    ats = str(x["fields"]["aggregatetimespent"])
     
-    big.append(" | ".join(map(str, result)))
+    if iequal(ats, "none"):
+        ats = "0.00"
+
+    ats = float(ats)
+    ats = format(float(ats/3600), '.2f')
+    result.append(ats)
+
+    # Percent Compelte
+    try:
+        result.append(x["fields"]["aggregateprogress"]["percent"])
+    except KeyError:
+        result.append("0")
+    
+    # Priority
+    result.append(x["fields"]["priority"]["name"])    
+
+    # Blank Field - New/Previous
+    result.append( "  " )    
+    
+    big.append(" | ".join(map(str, result)))    
 
 
+print "|| Index  || *Type* || *Key* || *Summary* || *Resolution* || *Linked Issues* || *Fix Versions* || *Release Notes* || *Time In Status* || *Status* || *Time Spent* || *Percent Compelte* || *Priority* || *New/Previous* ||"
+
+i = 0
 for ele in big:
-    print "| " + ele + " |"
+    i+=1
+    print '|%3d | %s |' % (i, ele)
