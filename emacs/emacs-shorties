@@ -24,3 +24,6 @@ Ctrl-u 70<char>
 # some grep stuff
 grep -r --include="*.java" -i -e  SHA-2 *
 
+# repeat macro on n lines
+
+Ctrl-u <n> Meta-x <macro>
