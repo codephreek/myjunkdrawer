@@ -1,1 +1,7 @@
 git remote add <name> URL
+
+#branching
+git checkout -b <name>
+
+#push to remote
+git push -u origin <name>
