@@ -1,0 +1,34 @@
+Added fciv.exe - cmd line utility that computes and verifies hashes of files
+Added depends.exe - dependency checker
+Added axhelper.exe  - ActiveX utility
+Notepad++
+CutePDF
+GitHub - this tool sucks, replaced with smartgit
+PDFArchitect
+Skitch
+Wingrep
+Winmerge
+
+Emacs
+AppData/Roaming/
+add .emacs
+create .emacs.d folder
+AppData/Roaming/.emacs.d/
+add my.el & els folder
+
+Installed SmartGit
+/c/Prog~x86/SMartGitHg
+
+/c/users/<user>/
+add a .bashrc & aliases if desired
+make a .gitconfig (if it is not here already)
+[user]
+   name = 
+   email = 
+should see a .hgrc (for mercurial)
+
+Created a _bin folder at root (to not confuse from a real bin folder)
+add to path
+add a bat file named to start the shell from a cmd window
+wscript "C:\Program Files (x86)\SmartGitHg\git\Git Bash.vbs" .
+
