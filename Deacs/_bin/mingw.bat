@@ -1,0 +1,1 @@
+wscript "C:\Program Files (x86)\SmartGitHg\git\Git Bash.vbs" .
