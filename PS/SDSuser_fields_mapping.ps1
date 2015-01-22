@@ -24,12 +24,13 @@ if($DFILE_NAME -eq "h" -or $DFILE_NAME -eq "help" -or $DFILE_NAME -eq "?"){
    
 dest-file      = The Destination file (template excel file)
 dest-tab-index = The tab number in the destination file where we will write data
-dest-map-col   = The column containing user field mapping names 
-dest-idx-col   = The column to write the index values
+dest-map-col   = The column continaing the mapping value (Xref for src-map-col) 
+dest-idx-col   = The value column (column to write value)
+
 src-file       = The source file (exported excel file)
 src-tab-index  = The tab number in the source file where the data exists
-src-map-col    = The user field name column
-src-idx-col    = The user field index column"
+src-map-col    = The column containing the mapping value (Xref for dest-map-col)
+src-idx-col    = The value column (column to read value)"
 }
 else{
     if((Test-Path -path $SFILE_NAME)){
