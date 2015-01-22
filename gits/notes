@@ -8,3 +8,7 @@ git push -u origin <name>
  
 #remove all branches merged with master
 git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d
+
+#list all files that were changed in a rev.
+git diff-tree --no-commit-id --name-only -r <SHA>
+git show --pretty="format:" --name-only <SHA>
