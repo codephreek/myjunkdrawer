@@ -5,3 +5,6 @@ git checkout -b <name>
 
 #push to remote
 git push -u origin <name>
+ 
+#remove all branches merged with master
+git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d
