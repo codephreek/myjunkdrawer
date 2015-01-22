@@ -1,3 +1,4 @@
+Windows-KB841290-x86-ENU-ChkSum
 Added fciv.exe - cmd line utility that computes and verifies hashes of files
 Added depends.exe - dependency checker
 Added axhelper.exe  - ActiveX utility
@@ -8,7 +9,15 @@ PDFArchitect
 Skitch
 Wingrep
 Winmerge
+Antlr-4.2
+CuteWriter
+depends
+EDINotepad8
+GitHubSetup
+npp.6.6.9.Installer
+PDFCreator
 
+#######################
 Emacs
 AppData/Roaming/
 add .emacs
@@ -16,6 +25,7 @@ create .emacs.d folder
 AppData/Roaming/.emacs.d/
 add my.el & els folder
 
+#######################
 Installed SmartGit
 /c/Prog~x86/SMartGitHg
 
@@ -31,4 +41,8 @@ Created a _bin folder at root (to not confuse from a real bin folder)
 add to path
 add a bat file named to start the shell from a cmd window
 wscript "C:\Program Files (x86)\SmartGitHg\git\Git Bash.vbs" .
+
+
+
+
 

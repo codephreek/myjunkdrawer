@@ -6,3 +6,12 @@
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+function antlr4 {
+    java -jar /c/JavaDir/antlr-4.2-complete.jar "$@"
+}
+function grun {
+    java org.antlr.v4.runtime.misc.TestRig "$@"
+}
+export -f grun
+export -f antlr4
