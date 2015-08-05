@@ -1,0 +1,16 @@
+git
+emacs24
+?? oracle-java8-installer
+openjdk-8-jdk
+
+To resolve the aapt issue:
+Copy appt from build tools folder:
+appt
+lib (dx.jar)
+dx
+
+sudo apt-get install ia32-libs
+sudo apt-get install lib32z1
+sudo apt-get install lib32ncurses5
+sudo apt-get install lib32bz2-1.0
+sudo apt-get install lib32stdc++6
