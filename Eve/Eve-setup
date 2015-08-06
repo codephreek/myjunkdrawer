@@ -14,3 +14,6 @@ sudo apt-get install lib32z1
 sudo apt-get install lib32ncurses5
 sudo apt-get install lib32bz2-1.0
 sudo apt-get install lib32stdc++6
+
+Printer:
+wget http://download.brother.com/welcome/dlf006893/linux-brprinter-installer-2.0.0-1.gz
