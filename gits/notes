@@ -31,3 +31,13 @@ git diff --name-status <branch1>..branch2>
 
 git diff --name-status <branch1>...<branch2> 
 outputs changes that occurred on branch2 since branch1 was created from it
+
+
+ git -b feature/XXX
+ git checkout -b feature/XXX
+ git fetch --all
+ ***  git push --set-upstream origin feature/
+ 
+git remote prune origin
+
+
