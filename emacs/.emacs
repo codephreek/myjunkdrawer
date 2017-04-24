@@ -1,7 +1,8 @@
 ;; for normal linux style
-(add-to-list 'load-path "~/.emacs.d/")
+;; commented out for new deployments
+;;(add-to-list 'load-path "~/.emacs.d/")
 ;; for a windows spawned shell
-(add-to-list 'load-path "c:/Users/jmorris/AppData/Roaming/.emacs.d/")
+(add-to-list 'load-path "c:/Users/XXXXX/AppData/Roaming/.emacs.d/lisp")
 
 (load "my.el")
 (load "els/ip3.el")
