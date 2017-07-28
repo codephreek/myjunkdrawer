@@ -41,3 +41,8 @@ outputs changes that occurred on branch2 since branch1 was created from it
 git remote prune origin
 
 
+git tag -a XXX -m "XXX"
+
+git tag -n99 (list all tags and annotations)
+
+
