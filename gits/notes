@@ -45,4 +45,6 @@ git tag -a XXX -m "XXX"
 
 git tag -n99 (list all tags and annotations)
 
-
+#delete remote then local branch
+git push -d origin <branch_name>
+git branch -d <branch_name>
