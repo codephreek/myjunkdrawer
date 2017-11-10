@@ -48,3 +48,9 @@ git tag -n99 (list all tags and annotations)
 #delete remote then local branch
 git push -d origin <branch_name>
 git branch -d <branch_name>
+
+
+git stash save <NAME>
+git stash apply stash^{/<NAME>}
+
+git stash pop stash@{<INDEX>}
