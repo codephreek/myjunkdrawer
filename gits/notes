@@ -54,3 +54,8 @@ git stash save <NAME>
 git stash apply stash^{/<NAME>}
 
 git stash pop stash@{<INDEX>}
+
+// no format-patch per commit metadata
+git diff HEAD~2..HEAD > my-patch.diff 
+// will
+git format-patch HEAD~2..HEAD --stdout > changes.patch
